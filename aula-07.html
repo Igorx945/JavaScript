@@ -10,10 +10,12 @@
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 20px;
+            background-image: url(imagemfundo\ \(2\).png);
+            color: red;
         }
 
         h1 {
-            color: #333;
+            color: red;
         }
 
         label {
@@ -35,6 +37,7 @@
 
         p {
             margin-top: 10px;
+            color: white;
         }
 
         ul {
@@ -44,22 +47,24 @@
 
         li {
             margin: 5px;
+            color: white;
         }
     </style>
 </head>
 
 <body>
-    <h1>Exemplo de Página HTML com JavaScript</h1>
+    <h1><strong>Exemplos de Página HTML com JavaScript</strong></h1>
 
-    <label for="nome">Digite seu nome:</label>
+    <label for="nome"><strong>Digite seu nome:</strong></label>
     <input type="text" id="nome" placeholder="Seu nome">
-    <button id="meuBotao">Clique-me!</button>
-    <button id="limparBotao">Limpar</button>
+    <button id="meuBotao"><strong>Clique-me!</strong></button>
+    <button id="limparBotao"><strong>Limpar</strong></button>
 
     <p id="minhaMensagem"></p>
 
-    <h2>Nomes digitados:</h2>
+    <h2><strong>Nomes digitados:</strong></h2>
     <ul id="nomesDigitados"></ul>
+
 
     <script>
         document.getElementById("meuBotao").addEventListener("click", function () {
