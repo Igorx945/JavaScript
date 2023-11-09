@@ -8,11 +8,28 @@
 </head>
 <body>
     <div class="conteiner">
-    <h1>Jogo da Velha</h1>
-    <div class="board" id="board"></div>
-    <p class="message">Vez do Jogador X</p>
-    <button type="button" class="button">Click Me!</button>
+    <h1>Bem Vindo(a)</h1>
+        <img src="imagem.jpg" alt="imagem">
+        <button id="botao">Quer ouvir uma piada?</button>
+        <p id="msg"></p>
     </div>
-    <script src="ex-09.js"></script>
+
+    <script>
+        const msgDivert = [
+        "O que é que uma impressora disse para a outra? Essa folha é sua ou é impressão minha!",
+"Quem é o rei da horta? O rei-polho!",
+"Por que as estrelas não fazem miau? Por que Astro-não-mia!",
+"O que os críticos falaram sobre o restaurante que foi aberto na lua? A comida até que é boa, mas não tem atmosfera!"
+]
+
+let botao = document.getElementById('botao')
+let msg = document.getElementById('msg')
+botao.addEventListener('click', function () {
+    const msgAleatoria = msgDivert[Math.floor(Math.random() * msgDivert.length)]
+    msg.textContent = msgAleatoria
+    msg.style.padding = '5px'
+
+})
+    </script>
 </body>
 </html>

@@ -28,3 +28,9 @@ body{
     cursor: pointer;
     background-color: rgb(251, 255, 0);
   }
+
+  img {
+    max-width: 50%;
+    max-height: 50%;
+    margin: auto;
+  }
