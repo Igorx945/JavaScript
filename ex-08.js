@@ -12,4 +12,4 @@ for (let i=0; i < 9; i++){
     board.appendChild(cell);
 }
 
-function handleCellClick(index)
+ handleCellClick(index)
