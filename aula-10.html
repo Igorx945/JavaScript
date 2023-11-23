@@ -1,100 +1,112 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio</title>
+    <title>Document</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            height: 100vh;
-        }
-
-        header {
-            background-color: #333;
-            color: white;
-            padding: 1rem;
             text-align: center;
+            width: 31vh;
+            height: 96vh;
+            background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
         }
 
-        header h1 {
-            margin: 0;
+        input {
+            width: 30vh;
         }
 
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        nav ul li {
-            display: inline;
-            margin-right: 1rem;
-        }
-
-        nav ul li a {
+        .codepen-button {
+            display: block;
+            cursor: pointer;
             color: white;
+            margin: 0 auto;
+            position: relative;
             text-decoration: none;
+            font-weight: 600;
+            border-radius: 6px;
+            overflow: hidden;
+            padding: 3px;
+            isolation: isolate;
         }
 
-        main {
-            padding: 2rem;
+        .codepen-button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 400%;
+            height: 100%;
+            background: linear-gradient(115deg, #4fcf70, #fad648, #a767e5, #12bcfe, #44ce7b);
+            background-size: 25% 100%;
+            animation: an-at-keyframe-css-at-rule-that-translates-via-the-transform-property-the-background-by-negative-25-percent-of-its-width-so-that-it-gives-a-nice-border-animation_-We-use-the-translate-property-to-have-a-nice-transition-so-it_s-not-a-jerk-of-a-start-or-stop .75s linear infinite;
+            animation-play-state: paused;
+            translate: -5% 0%;
+            transition: translate 0.25s ease-out;
         }
 
-        section {
-            margin-bottom: 2rem;
+        .codepen-button:hover::before {
+            animation-play-state: running;
+            transition-duration: 0.75s;
+            translate: 0% 0%;
         }
 
-        section h2 {
-            margin-bottom: 1rem;
+        .codepen-button span {
+            position: relative;
+            display: block;
+            padding: 1rem 1.5rem;
+            font-size: 1.1rem;
+            background: #000;
+            border-radius: 3px;
+            height: 100%;
         }
 
-        footer {
-            background-color: #333;
+        p {
             color: white;
-            padding: 1rem;
-            text-align: center;
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <h1>Igor Alex Fanslau</h1>
-        <nav>
-            <ul>
-                <li><a href="https://github.com/Igorx945/JavaScript">GitHub</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section id="projetos">
-            <h2>Projetos</h2>
-            <a href="execicio-1.html">aula-01</a>
-            <br>
-            <a href="exercicio-2.html">aula-02</a>
-            <br>
-            <a href="ex-3.html">aula-03</a>
-            <br>
-            <a href="aula-07.html">aula-07</a>
-            <br>
-            <a href="aula-08.html">aula-08</a>
-            <br>
-            <a href="ex-09.html">aula-09</a>
-            <br>
-            <a href="aula-10.html">aula-10</a>
+    <div>
+        <h1>Advinhe o número</h1>
+    </div>
+    <div>
+        <p>Estou pensando em um numero entre 1 e 100. tente adivinhar!</p>
+    </div>
+    <label for="tentativa">Sua tentativa</label>
+   
+    <input type="number" id="tentativa" min="1" max="100">
+    
+    <button class="codepen-button" id="verificacao"><span>Click-Me</span></button>
 
-            <!-- Adicione os projetos aqui -->
-        </section>
-        <section id="contato">
-            <h2>Contato</h2>
-            <!-- Adicione informações de contato aqui -->
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2022 Seu Nome. Todos os direitos reservados.</p>
-    </footer>
+    <p id="dica"></p>
+
+    <script>
+        let numeroSecreto = Math.floor(Math.random() * 100) + 1
+        let qtdtentativas = 0;
+        let verificarBotao = document.getElementById("verificacao");
+        let tentativaInput = document.getElementById("tentativa");
+        let dica = document.getElementById("dica");
+
+        verificarBotao.addEventListener("click", function () {
+
+            const tentativa = parseInt(tentativaInput.value);
+
+            if (tentativa === numeroSecreto) {
+                dica.textContent = `Parabens! vc acertou em ${qtdtentativas}.`;
+                verificarBotao.disabled = true;
+            } else if (tentativa < numeroSecreto) {
+                dica.textContent = "tente um numero maior";
+                qtdtentativas++;
+            } else {
+                dica.textContent = "tente um numero menor";
+                qtdtentativas++;
+            }
+        });
+    </script>
 </body>
 
 </html>
