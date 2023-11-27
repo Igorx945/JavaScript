@@ -25,7 +25,7 @@ body {
     /* Define a largura */
     width: 100px;
     /* Define a cor de fundo */
-    background-color: hsl(81, 100%, 50%);
+    background-color: rgba(255,119,0,1);
     /* Muda o cursor do ponteiro */
     cursor: pointer;
     /* Define a borda */
@@ -33,7 +33,7 @@ body {
 }
 
 .cell:hover{
-    background-color: blue;
+    background-color: rgba(255,0,0,1);
 }
 
 .message{
